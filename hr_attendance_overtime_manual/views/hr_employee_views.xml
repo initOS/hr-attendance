@@ -16,7 +16,7 @@
                     name="%(open_hr_attendance_overtime_wizard)d"
                     string="Add Manual Overtime"
                     type="action"
-                    groups="hr_attendance.group_hr_attendance_user"
+                    groups="hr_attendance.group_hr_attendance_manager"
                 />
             </xpath>
         </field>
@@ -29,12 +29,38 @@
             ref="hr_attendance.view_employee_form_inherit_hr_attendance"
         />
         <field name="arch" type="xml">
-            <xpath
-                expr="//button[.//field[@name='total_overtime']]"
-                position="attributes"
-            >
-                <attribute name="invisible">False</attribute>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_open_last_month_overtime_legacy"
+                    class="oe_stat_button"
+                    icon="fa-history"
+                    type="object"
+                    invisible="total_overtime == 0.0"
+                    groups="hr_attendance.group_hr_attendance_officer"
+                >
+                    <div class="o_stat_info">
+                        <span
+                            class="o_stat_value text-success"
+                            invisible="total_overtime &lt; 0"
+                        >
+                            <field name="total_overtime" widget="float_time" />
+                        </span>
+                        <span
+                            class="o_stat_value text-danger"
+                            invisible="total_overtime &gt;= 0"
+                        >
+                            <field name="total_overtime" widget="float_time" />
+                        </span>
+                        <span class="o_stat_text">Extra Hours</span>
+                    </div>
+                </button>
             </xpath>
+            <!--            <xpath-->
+            <!--                expr="//button[.//field[@name='total_overtime']]"-->
+            <!--                position="attributes"-->
+            <!--            >-->
+            <!--                <attribute name="invisible">False</attribute>-->
+            <!--            </xpath>-->
         </field>
     </record>
 </odoo>
