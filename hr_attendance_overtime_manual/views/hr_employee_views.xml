@@ -12,11 +12,12 @@
         <field name="inherit_id" ref="hr.view_employee_form" />
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
+                <!-- TODO: Is this group correct? -->
                 <button
                     name="%(open_hr_attendance_overtime_wizard)d"
                     string="Add Manual Overtime"
                     type="action"
-                    groups="hr_attendance.group_hr_attendance_user"
+                    groups="hr_attendance.group_hr_attendance_manager"
                 />
             </xpath>
         </field>
@@ -33,7 +34,7 @@
                 expr="//button[.//field[@name='total_overtime']]"
                 position="attributes"
             >
-                <attribute name="attrs">{'invisible': False}</attribute>
+                <attribute name="invisible">False</attribute>
             </xpath>
         </field>
     </record>
