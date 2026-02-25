@@ -15,12 +15,11 @@ class TimesheetWizard(models.TransientModel):
     note = fields.Char(required=True)
 
     def action_create(self):
-        self.env["hr.attendance.overtime"].create(
+        self.env["hr.attendance.overtime.line"].create(
             {
                 "employee_id": self.env.context.get("active_id"),
                 "date": self.date,
                 "duration": self.duration,
                 "note": self.note,
-                "adjustment": True,
             }
         )

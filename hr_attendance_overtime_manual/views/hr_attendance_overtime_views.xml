@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="view_attendance_overtime_tree" model="ir.ui.view">
-        <field name="model">hr.attendance.overtime</field>
-        <field name="inherit_id" ref="hr_attendance.view_attendance_overtime_tree" />
+        <field name="name">hr.attendance.overtime.list</field>
+        <field name="model">hr.attendance.overtime.line</field>
         <field name="arch" type="xml">
-            <field name="duration" position="after">
+            <list edit="0" create="0">
+                <field name="date" />
+                <field name="employee_id" />
+                <field name="duration" widget="float_time" />
                 <field name="note" optional="show" />
-            </field>
+            </list>
         </field>
     </record>
 </odoo>

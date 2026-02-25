@@ -35,7 +35,6 @@
                     class="oe_stat_button"
                     icon="fa-history"
                     type="object"
-                    invisible="total_overtime == 0.0"
                     groups="hr_attendance.group_hr_attendance_officer"
                 >
                     <div class="o_stat_info">
@@ -55,12 +54,6 @@
                     </div>
                 </button>
             </xpath>
-            <!--            <xpath-->
-            <!--                expr="//button[.//field[@name='total_overtime']]"-->
-            <!--                position="attributes"-->
-            <!--            >-->
-            <!--                <attribute name="invisible">False</attribute>-->
-            <!--            </xpath>-->
         </field>
     </record>
 </odoo>

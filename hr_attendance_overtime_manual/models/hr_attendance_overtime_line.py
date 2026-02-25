@@ -5,6 +5,6 @@ from odoo import fields, models
 
 
 class HrAttendanceOvertime(models.Model):
-    _inherit = "hr.attendance.overtime"
+    _inherit = "hr.attendance.overtime.line"
 
     note = fields.Char()
